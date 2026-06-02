@@ -1,0 +1,30 @@
+{
+    "$schema": "https://www.schemastore.org/tsconfig.json",
+    "compilerOptions": {
+        "allowJs": false,
+        "checkJs": false,
+        "composite": true,
+        "declaration": true,
+        "declarationMap": true,
+        "noEmit": false,
+        "outDir": "./dist",
+        "rootDir": "./src",
+        "sourceMap": true,
+        "tsBuildInfoFile": "./.cache/tsbuildinfo/tsconfig.build.tsbuildinfo",
+        "types": [
+            "node"
+        ]
+    },
+    "exclude": [
+        ".cache/**",
+        "coverage/**",
+        "dist/**",
+        "node_modules/**",
+        "test/**"
+    ],
+    "extends": "./tsconfig.json",
+    "include": [
+        "src/**/*.ts",
+        "typedoc.json"
+    ]
+}

@@ -1,0 +1,131 @@
+{
+    "$schema": "https://www.schemastore.org/package.json",
+    "name": "typedoc-config-nick2bad4u",
+    "version": "0.1.0",
+    "private": false,
+    "description": "Shared TypeDoc config for Nick2bad4u TypeScript projects.",
+    "keywords": [
+        "documentation",
+        "typedoc",
+        "typedoc-config",
+        "typescript",
+        "shared-config"
+    ],
+    "homepage": "https://github.com/Nick2bad4u/typedoc-config-nick2bad4u#readme",
+    "bugs": {
+        "url": "https://github.com/Nick2bad4u/typedoc-config-nick2bad4u/issues",
+        "email": "20943337+Nick2bad4u@users.noreply.github.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Nick2bad4u/typedoc-config-nick2bad4u.git"
+    },
+    "license": "MIT",
+    "author": "Nick2bad4u <20943337+Nick2bad4u@users.noreply.github.com> (https://github.com/Nick2bad4u)",
+    "contributors": [
+        {
+            "name": "Nick2bad4u",
+            "email": "20943337+Nick2bad4u@users.noreply.github.com",
+            "url": "https://github.com/Nick2bad4u"
+        }
+    ],
+    "sideEffects": false,
+    "type": "module",
+    "exports": {
+        ".": {
+            "types": "./dist/preset.d.ts",
+            "import": "./dist/preset.js",
+            "require": null
+        },
+        "./typedoc.json": "./typedoc.json",
+        "./package.json": "./package.json"
+    },
+    "main": "./dist/preset.js",
+    "types": "./dist/preset.d.ts",
+    "files": [
+        "dist",
+        "typedoc.json"
+    ],
+    "scripts": {
+        "build": "npm run clean:dist && tsc -p tsconfig.build.json",
+        "changelog:generate": "git-cliff --config cliff.toml --output CHANGELOG.md",
+        "changelog:preview": "git-cliff --config cliff.toml --unreleased",
+        "changelog:release-notes": "git-cliff --config cliff.toml --current --strip all",
+        "clean:dist": "node scripts/clean-dist.mjs",
+        "coverage": "npm run build && vitest run --coverage",
+        "lint": "cross-env NODE_OPTIONS=--max_old_space_size=8192 eslint . --cache --cache-strategy content --cache-location .cache/.eslintcache",
+        "lint:all": "npm run lint && npm run typecheck && npm run test && npm run lint:prettier && npm run lint:package && npm run lint:yaml && npm run lint:secretlint",
+        "lint:all:fix": "npm run lint:fix && npm run lint:prettier:fix && npm run lint:package:fix && npm run typecheck && npm run test && npm run lint:yaml:fix && npm run lint:secretlint",
+        "lint:attw": "attw --pack . --profile esm-only",
+        "lint:fix": "npm run lint -- --fix",
+        "lint:package": "npm run lint:package-sort && npm run lint:package-json && npm run lint:package-check",
+        "lint:package:fix": "sort-package-json package.json",
+        "lint:package-check": "npm run package:check && npm run lint:publint && npm run lint:attw",
+        "lint:package-fix": "npm run lint:package:fix",
+        "lint:package-json": "npmPkgJsonLint . --config .npmpackagejsonlintrc.json",
+        "lint:package-sort": "sort-package-json --check package.json",
+        "lint:prettier": "prettier . --log-level warn --cache --cache-location=.cache/.prettier-cache --cache-strategy=content --check",
+        "lint:prettier:fix": "prettier . --log-level warn --cache --cache-location=.cache/.prettier-cache --cache-strategy=content --write",
+        "lint:publint": "publint",
+        "lint:secretlint": "secretlint --secretlintrc .secretlintrc.cjs --secretlintignore .gitignore \"**/*\"",
+        "lint:yaml": "eslint --cache --cache-strategy content --cache-location .cache/.eslintcache \"**/*.{yml,yaml}\"",
+        "lint:yaml:fix": "npm run lint:yaml -- --fix",
+        "package:check": "npm pack --dry-run",
+        "release:check": "npm run release:verify",
+        "release:verify": "npm run build && npm run lint:all && npm run lint:package-check",
+        "sync:node-version-files": "node scripts/sync-node-version-files.mjs",
+        "test": "npm run build && vitest run",
+        "test:coverage": "npm run coverage",
+        "typecheck": "npm run build && tsc -p tsconfig.json --noEmit && tsc -p tsconfig.eslint.json --noEmit && tsc -p tsconfig.js.json --noEmit && tsc -p tsconfig.vitest-typecheck.json --noEmit",
+        "typecheck:all": "npm run typecheck",
+        "types:update": "typesync",
+        "update-deps": "npx ncu -i --install never && npm update --force && npm install --force && npm run sync:node-version-files",
+        "verify": "npm run release:verify"
+    },
+    "devDependencies": {
+        "@arethetypeswrong/cli": "^0.18.3",
+        "@types/node": "^25.9.1",
+        "@vitest/coverage-v8": "^4.1.8",
+        "cross-env": "^10.1.0",
+        "eslint": "^10.4.1",
+        "eslint-config-nick2bad4u": "^1.2.7",
+        "git-cliff": "^2.13.1",
+        "npm-package-json-lint": "^10.4.0",
+        "picocolors": "^1.1.1",
+        "prettier": "^3.8.3",
+        "prettier-config-nick2bad4u": "^1.0.13",
+        "publint": "^0.3.21",
+        "remark-config-nick2bad4u": "^1.0.3",
+        "secretlint": "^13.0.2",
+        "secretlint-config-nick2bad4u": "^1.1.0",
+        "sort-package-json": "^3.6.1",
+        "typedoc": "^0.28.19",
+        "typescript": "^6.0.3",
+        "vite": "^8.0.16",
+        "vitest": "^4.1.8"
+    },
+    "peerDependencies": {
+        "typedoc": ">=0.28.0"
+    },
+    "packageManager": "npm@11.16.0",
+    "engines": {
+        "node": ">=22.0.0"
+    },
+    "devEngines": {
+        "runtime": {
+            "name": "node",
+            "version": ">=22.0.0",
+            "onFail": "error"
+        },
+        "packageManager": {
+            "name": "npm",
+            "version": ">=11.0.0",
+            "onFail": "error"
+        }
+    },
+    "publishConfig": {
+        "provenance": true,
+        "registry": "https://registry.npmjs.org/"
+    },
+    "readme": "README.md"
+}
