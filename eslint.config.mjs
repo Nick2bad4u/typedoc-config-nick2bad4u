@@ -4,10 +4,10 @@ import nickTwoBadFourU from "eslint-config-nick2bad4u";
 const config = [
     ...nickTwoBadFourU.configs.all,
     {
-        files: ["index.cjs"],
+        files: ["src/preset.ts"],
         rules: {
-            "module-interop/no-cjs-exports": "off",
-            "unicorn/prefer-module": "off",
+            "canonical/no-re-export": "off",
+            "import-x/extensions": "off",
         },
     },
 ];
