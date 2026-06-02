@@ -1,0 +1,13 @@
+# Gitleaks configuration for Nick2bad4u shared config packages.
+# See: https://github.com/gitleaks/gitleaks/blob/master/config/gitleaks.toml
+title = "Nick2bad4u Shared Config Secret Detection"
+
+[extend]
+    useDefault = true
+
+    # The generic rule is intentionally noisy for config-package fixtures and docs.
+    disabledRules = [ "generic-api-key" ]
+
+[[allowlists]]
+    description = "Ignore generated TypeDoc JSON output"
+    paths = [ '''^docs/typedoc\.json$''', ]
