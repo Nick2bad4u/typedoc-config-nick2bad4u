@@ -75,7 +75,7 @@
         "lint:all:fix": "npm run lint:fix && npm run lint:remark:fix && npm run lint:prettier:fix && npm run lint:package:fix && npm run typecheck && npm run test && npm run lint:yaml:fix && npm run lint:secretlint",
         "lint:attw": "attw --pack . --profile esm-only",
         "lint:fix": "npm run lint -- --fix",
-        "lint:gitleaks": "gitleaks git --config .gitleaks.toml .",
+        "lint:gitleaks": "gitleaks dir --config .gitleaks.toml .",
         "lint:package": "npm run lint:package-sort && npm run lint:package-json && npm run lint:package-check",
         "lint:package:fix": "sort-package-json package.json",
         "lint:package-check": "npm run package:check && npm run lint:publint && npm run lint:attw",
