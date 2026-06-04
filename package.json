@@ -1,7 +1,7 @@
 {
     "$schema": "https://www.schemastore.org/package.json",
     "name": "typedoc-config-nick2bad4u",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "private": false,
     "description": "Shared TypeDoc config for Nick2bad4u TypeScript projects.",
     "keywords": [
@@ -38,12 +38,29 @@
             "require": null
         },
         "./typedoc.json": "./typedoc.json",
+        "./typedoc-plugins/hash-to-bang-links.mjs": {
+            "types": "./typedoc-plugins/hash-to-bang-links.d.mts",
+            "import": "./typedoc-plugins/hash-to-bang-links.mjs"
+        },
+        "./typedoc-plugins/hash-to-bang-links-core.mjs": {
+            "types": "./typedoc-plugins/hash-to-bang-links-core.d.mts",
+            "import": "./typedoc-plugins/hash-to-bang-links-core.mjs"
+        },
+        "./typedoc-plugins/prefix-doc-links.mjs": {
+            "types": "./typedoc-plugins/prefix-doc-links.d.mts",
+            "import": "./typedoc-plugins/prefix-doc-links.mjs"
+        },
+        "./typedoc-plugins/prefix-doc-links-core.mjs": {
+            "types": "./typedoc-plugins/prefix-doc-links-core.d.mts",
+            "import": "./typedoc-plugins/prefix-doc-links-core.mjs"
+        },
         "./package.json": "./package.json"
     },
     "main": "./dist/preset.js",
     "types": "./dist/preset.d.ts",
     "files": [
         "dist",
+        "typedoc-plugins",
         "typedoc.json"
     ],
     "scripts": {
@@ -54,10 +71,11 @@
         "clean:dist": "node scripts/clean-dist.mjs",
         "coverage": "npm run build && vitest run --coverage",
         "lint": "cross-env NODE_OPTIONS=--max_old_space_size=8192 eslint . --cache --cache-strategy content --cache-location .cache/.eslintcache",
-        "lint:all": "npm run lint && npm run typecheck && npm run test && npm run lint:prettier && npm run lint:package && npm run lint:yaml && npm run lint:secretlint",
-        "lint:all:fix": "npm run lint:fix && npm run lint:prettier:fix && npm run lint:package:fix && npm run typecheck && npm run test && npm run lint:yaml:fix && npm run lint:secretlint",
+        "lint:all": "npm run lint && npm run typecheck && npm run test && npm run lint:remark && npm run lint:prettier && npm run lint:package && npm run lint:yaml && npm run lint:yamllint && npm run lint:gitleaks && npm run lint:secretlint",
+        "lint:all:fix": "npm run lint:fix && npm run lint:remark:fix && npm run lint:prettier:fix && npm run lint:package:fix && npm run typecheck && npm run test && npm run lint:yaml:fix && npm run lint:secretlint",
         "lint:attw": "attw --pack . --profile esm-only",
         "lint:fix": "npm run lint -- --fix",
+        "lint:gitleaks": "gitleaks git --config .gitleaks.toml .",
         "lint:package": "npm run lint:package-sort && npm run lint:package-json && npm run lint:package-check",
         "lint:package:fix": "sort-package-json package.json",
         "lint:package-check": "npm run package:check && npm run lint:publint && npm run lint:attw",
@@ -67,9 +85,12 @@
         "lint:prettier": "prettier . --log-level warn --cache --cache-location=.cache/.prettier-cache --cache-strategy=content --check",
         "lint:prettier:fix": "prettier . --log-level warn --cache --cache-location=.cache/.prettier-cache --cache-strategy=content --write",
         "lint:publint": "publint",
+        "lint:remark": "remark . --frail --ignore-path .remarkignore",
+        "lint:remark:fix": "remark . --ignore-path .remarkignore --output",
         "lint:secretlint": "secretlint --secretlintrc .secretlintrc.cjs --secretlintignore .gitignore \"**/*\"",
         "lint:yaml": "eslint --cache --cache-strategy content --cache-location .cache/.eslintcache \"**/*.{yml,yaml}\"",
         "lint:yaml:fix": "npm run lint:yaml -- --fix",
+        "lint:yamllint": "yamllint -c .yamllint .",
         "package:check": "npm pack --dry-run",
         "release:check": "npm run release:verify",
         "release:verify": "npm run build && npm run lint:all && npm run lint:package-check",
@@ -96,25 +117,32 @@
     },
     "devDependencies": {
         "@arethetypeswrong/cli": "^0.18.3",
+        "@microsoft/tsdoc-config": "^0.18.1",
         "@types/node": "^25.9.1",
         "@vitest/coverage-v8": "^4.1.8",
         "cross-env": "^10.1.0",
         "eslint": "^10.4.1",
         "eslint-config-nick2bad4u": "^1.2.7",
         "git-cliff": "^2.13.1",
+        "gitleaks-config-nick2bad4u": "^0.1.0",
         "npm-package-json-lint": "^10.4.0",
+        "npm-package-json-lint-config-nick2bad4u": "^1.0.0",
         "picocolors": "^1.1.1",
         "prettier": "^3.8.3",
         "prettier-config-nick2bad4u": "^1.0.13",
         "publint": "^0.3.21",
+        "remark": "^15.0.1",
+        "remark-cli": "^12.0.1",
         "remark-config-nick2bad4u": "^1.0.5",
         "secretlint": "^13.0.2",
         "secretlint-config-nick2bad4u": "^1.1.0",
         "sort-package-json": "^4.0.0",
+        "tsdoc-config-nick2bad4u": "^1.0.0",
         "typedoc": "^0.28.19",
         "typescript": "^6.0.3",
         "vite": "^8.0.16",
-        "vitest": "^4.1.8"
+        "vitest": "^4.1.8",
+        "yamllint-config-nick2bad4u": "^1.0.0"
     },
     "peerDependencies": {
         "typedoc": ">=0.28.0"

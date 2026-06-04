@@ -50,6 +50,7 @@ The preset is tuned for publishable TypeScript package API documentation:
 
 - Emits markdown documentation with `typedoc-plugin-markdown`.
 - Loads plugins for MDN links, DefinitelyTyped links, external package links, missing exports, default export renaming, comment text cleanup, remark integration, Docusaurus output support, and documentation coverage.
+- Ships two local TypeDoc plugins that rewrite `path#Symbol` inline links to TypeDoc declaration-reference `path!Symbol` links and prefix bare generated Markdown file links with `./` for Docusaurus resolution.
 - Treats TypeDoc validation warnings as errors so broken links and invalid paths fail the docs build.
 - Sanitizes comments before markdown output.
 - Keeps package-specific entry points, output paths, JSON output paths, and `tsconfig` paths out of the shared config.
