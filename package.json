@@ -82,14 +82,6 @@
         "update-deps": "npx ncu -i --install never && npm update --force && npm install --force && npm run sync:node-version-files",
         "verify": "npm run release:verify"
     },
-    "overrides": {
-        "remark-lint-frontmatter-schema": {
-            "@apidevtools/json-schema-ref-parser": "11.9.3",
-            "ajv": "8.20.0",
-            "minimatch": "9.0.9",
-            "yaml": "2.9.0"
-        }
-    },
     "dependencies": {
         "typedoc-docusaurus-theme": "^1.4.2",
         "typedoc-plugin-coverage": "^4.0.3",

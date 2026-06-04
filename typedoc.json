@@ -50,15 +50,7 @@
     "cascadedModifierTags": [
         "@alpha",
         "@beta",
-        "@experimental",
-        "@eventProperty",
-        "@internal",
-        "@override",
-        "@packageDocumentation",
-        "@public",
-        "@readonly",
-        "@sealed",
-        "@virtual"
+        "@experimental"
     ],
     "categorizeByGroup": false,
     "cleanOutputDir": true,
@@ -73,7 +65,6 @@
     "disableGit": false,
     "disableSources": false,
     "emit": "docs",
-    "entryPointStrategy": "expand",
     "exclude": [
         "**/dist/**",
         "**/node_modules/**",
@@ -392,8 +383,6 @@
         }
     },
     "formatWithPrettier": true,
-    "gitRemote": "origin",
-    "gitRevision": "main",
     "groupReferencesByType": false,
     "headings": true,
     "highlightLanguages": [
@@ -499,18 +488,7 @@
         "@showCategories",
         "@showGroups",
         "@useDeclaredType",
-        "@primaryExport",
-        "@alpha",
-        "@beta",
-        "@experimental",
-        "@eventProperty",
-        "@internal",
-        "@override",
-        "@packageDocumentation",
-        "@public",
-        "@readonly",
-        "@sealed",
-        "@virtual"
+        "@primaryExport"
     ],
     "navigation": {
         "compactFolders": false,
@@ -547,15 +525,11 @@
             {
                 "pattern": "\\bFIXME:",
                 "replace": "**FIXME:**"
-            },
-            {
-                "pattern": "\\bError\\b",
-                "replace": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error"
             }
         ]
     },
     "resolveUtilityTypes": true,
-    "sanitizeComments": false,
+    "sanitizeComments": true,
     "showConfig": false,
     "skipErrorChecking": false,
     "sort": [
@@ -566,7 +540,7 @@
     "strikeDeprecatedPageTitles": true,
     "suppressCommentWarningsInDeclarationFiles": true,
     "theme": "markdown",
-    "treatValidationWarningsAsErrors": false,
+    "treatValidationWarningsAsErrors": true,
     "treatWarningsAsErrors": false,
     "useCustomAnchors": true,
     "useFirstParagraphOfCommentAsSummary": true,
@@ -577,7 +551,7 @@
         "invalidLink": true,
         "invalidPath": true,
         "notDocumented": false,
-        "notExported": false,
+        "notExported": true,
         "rewrittenLink": true,
         "unusedMergeModuleWith": true
     },
