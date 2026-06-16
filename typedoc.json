@@ -389,6 +389,7 @@
         "typescript",
         "jsx",
         "python",
+        "powershell",
         "java",
         "csharp",
         "cpp",

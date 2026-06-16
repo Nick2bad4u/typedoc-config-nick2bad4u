@@ -11,6 +11,7 @@ const config = [
             ".remarkrc.mjs",
             "*.mjs",
             ".*.mjs",
+            "scripts/*.mjs",
             "typedoc-plugins/*.mjs",
         ],
         rootDirectory,

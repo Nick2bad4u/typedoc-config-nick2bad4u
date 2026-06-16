@@ -16,6 +16,13 @@ const URL_LIKE_SCHEMES = new Set([
     "urn",
 ]);
 
+/** @type {ReadonlySet<string>} */
+const INLINE_LINK_TAGS = new Set([
+    "@link",
+    "@linkcode",
+    "@linkplain",
+]);
+
 /**
  * @param {Comment} comment
  */
@@ -82,12 +89,7 @@ export function convertHashLinksToBangLinksInInlineTagText(inlineTagText) {
  */
 export function convertHashLinksToBangLinksInParts(parts) {
     for (const part of parts) {
-        if (
-            part.kind === "inline-tag" &&
-            (part.tag === "@link" ||
-                part.tag === "@linkcode" ||
-                part.tag === "@linkplain")
-        ) {
+        if (part.kind === "inline-tag" && INLINE_LINK_TAGS.has(part.tag)) {
             const rewritten = convertHashLinksToBangLinksInInlineTagText(
                 part.text
             );

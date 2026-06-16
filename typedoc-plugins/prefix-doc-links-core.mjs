@@ -37,10 +37,7 @@ export function prefixBareMarkdownFileLinksInMarkdown(input) {
                 );
             const markerChar = typedGroups?.marker ?? run.charAt(0);
             /** @type {"`" | "~"} */
-            let marker = "~";
-            if (markerChar === "`") {
-                marker = "`";
-            }
+            const marker = markerChar === "`" ? "`" : "~";
             const { length } = run;
 
             if (fenceState === null) {
@@ -83,33 +80,29 @@ function findInlineLinkClosingParen(input, startIndex) {
     while (i < input.length) {
         const ch = input.charAt(i);
 
-        switch (ch) {
-            case "(": {
-                depth += 1;
-                i += 1;
-
-                break;
-            }
-            case ")": {
-                if (depth === 0) {
-                    return i;
-                }
-
-                depth -= 1;
-                i += 1;
-
-                break;
-            }
-            case "\\": {
-                // Skip escaped character (including escaped parens).
-                i += 2;
-
-                break;
-            }
-            default: {
-                i += 1;
-            }
+        if (ch === "(") {
+            depth += 1;
+            i += 1;
+            continue;
         }
+
+        if (ch === ")") {
+            if (depth === 0) {
+                return i;
+            }
+
+            depth -= 1;
+            i += 1;
+            continue;
+        }
+
+        if (ch === "\\") {
+            // Skip escaped character (including escaped parens).
+            i += 2;
+            continue;
+        }
+
+        i += 1;
     }
 
     return -1;
@@ -170,16 +163,23 @@ function isEscaped(input, index) {
  * Prefixes bare relative Markdown file link destinations with `./` so
  * Docusaurus treats them as file paths.
  *
- * @param {string} url - The inline link destination (may contain whitespace).
+ * @param {string} destination - The inline link destination (may contain
+ *   spaces).
  */
-function prefixIfBareRelativeMarkdownFile(url) {
-    const trimmedStart = url.trimStart();
-    const leadingWs = url.slice(0, url.length - trimmedStart.length);
+function prefixIfBareRelativeMarkdownFile(destination) {
+    const trimmedStart = destination.trimStart();
+    const leadingWs = destination.slice(
+        0,
+        destination.length - trimmedStart.length
+    );
 
-    const trimmedEnd = url.trimEnd();
-    const trailingWs = url.slice(trimmedEnd.length);
+    const trimmedEnd = destination.trimEnd();
+    const trailingWs = destination.slice(trimmedEnd.length);
 
-    const trimmed = url.slice(leadingWs.length, url.length - trailingWs.length);
+    const trimmed = destination.slice(
+        leadingWs.length,
+        destination.length - trailingWs.length
+    );
 
     // Ignore fragments, absolute paths, already-relative paths, protocol-relative URLs.
     if (
@@ -189,12 +189,12 @@ function prefixIfBareRelativeMarkdownFile(url) {
         trimmed.startsWith("../") ||
         trimmed.startsWith("//")
     ) {
-        return url;
+        return destination;
     }
 
-    // Ignore any explicit scheme (http:, https:, mailto:, vscode:, etc.).
+    // Ignore any explicit scheme (HTTP:, HTTPS:, mailto:, VS Code:, etc.).
     if (SCHEME_RE.test(trimmed)) {
-        return url;
+        return destination;
     }
 
     const hashIndex = trimmed.indexOf("#");
@@ -206,7 +206,7 @@ function prefixIfBareRelativeMarkdownFile(url) {
 
     // Only touch markdown-file links.
     if (!pathname.endsWith(".md") && !pathname.endsWith(".mdx")) {
-        return url;
+        return destination;
     }
 
     return `${leadingWs}./${trimmed}${trailingWs}`;
@@ -373,36 +373,34 @@ function splitInlineLinkDestination(payload) {
     while (i < core.length) {
         const ch = core.charAt(i);
 
-        switch (ch) {
-            case "(": {
-                depth += 1;
-                i += 1;
-
-                break;
-            }
-            case ")": {
-                if (depth > 0) {
-                    depth -= 1;
-                }
-                i += 1;
-
-                break;
-            }
-            case "\\": {
-                i += 2;
-
-                break;
-            }
-            default: {
-                if (depth === 0 && /\s/v.test(ch)) {
-                    return {
-                        destination: core.slice(0, i),
-                        remainder: core.slice(i),
-                    };
-                }
-                i += 1;
-            }
+        if (ch === "(") {
+            depth += 1;
+            i += 1;
+            continue;
         }
+
+        if (ch === ")") {
+            if (depth > 0) {
+                depth -= 1;
+            }
+
+            i += 1;
+            continue;
+        }
+
+        if (ch === "\\") {
+            i += 2;
+            continue;
+        }
+
+        if (depth === 0 && /\s/v.test(ch)) {
+            return {
+                destination: core.slice(0, i),
+                remainder: core.slice(i),
+            };
+        }
+
+        i += 1;
     }
 
     return { destination: core, remainder: "" };

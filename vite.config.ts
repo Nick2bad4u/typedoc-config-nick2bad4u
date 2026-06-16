@@ -3,7 +3,7 @@ import { defineConfig } from "vitest/config";
 const isCiEnvironment = process.env["CI"] === "true";
 const configuredMaxWorkers =
     process.env["MAX_THREADS"] ?? (isCiEnvironment ? "1" : "8");
-const parsedMaxWorkers = Number.parseInt(configuredMaxWorkers, 10);
+const parsedMaxWorkers = Number(configuredMaxWorkers);
 const maxWorkerCount =
     Number.isFinite(parsedMaxWorkers) && parsedMaxWorkers > 0
         ? parsedMaxWorkers
