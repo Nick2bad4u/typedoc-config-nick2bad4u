@@ -8,11 +8,11 @@ import {
     writeFile,
 } from "node:fs/promises";
 import * as nodePath from "node:path";
+import { prefixBareMarkdownFileLinksInMarkdown } from "typedoc-plugin-docusaurus-doc-links/core";
+import { convertHashLinksToBangLinksInInlineTagText } from "typedoc-plugin-hash-link-references/core";
 import { describe, expect, it } from "vitest";
 
 import config, { configFileName, packageName } from "../src/preset";
-import { convertHashLinksToBangLinksInInlineTagText } from "../typedoc-plugins/hash-to-bang-links-core.mjs";
-import { prefixBareMarkdownFileLinksInMarkdown } from "../typedoc-plugins/prefix-doc-links-core.mjs";
 
 const fixtureDirectory = nodePath.join(".cache", "typedoc-config-fixture");
 const typedocCliPath = nodePath.join(
@@ -21,9 +21,9 @@ const typedocCliPath = nodePath.join(
     "bin",
     "typedoc"
 );
-const packagedTypeDocPluginPaths = [
-    "./typedoc-plugins/hash-to-bang-links.mjs",
-    "./typedoc-plugins/prefix-doc-links.mjs",
+const packagedTypeDocPluginNames = [
+    "typedoc-plugin-docusaurus-doc-links",
+    "typedoc-plugin-hash-link-references",
 ] as const;
 
 describe("typedoc-config-nick2bad4u", () => {
@@ -102,7 +102,7 @@ describe("typedoc-config-nick2bad4u", () => {
         expect(config.plugin).toContain("typedoc-plugin-markdown");
         expect(config.plugin).toContain("typedoc-plugin-dt-links");
         expect(config.plugin).toStrictEqual(
-            expect.arrayContaining([...packagedTypeDocPluginPaths])
+            expect.arrayContaining([...packagedTypeDocPluginNames])
         );
         expect(config.sanitizeComments).toBe(true);
         expect(config.theme).toBe("markdown");
@@ -111,16 +111,19 @@ describe("typedoc-config-nick2bad4u", () => {
         expect(config.visibilityFilters?.private).toBe(false);
         expect(Object.hasOwn(config, "inlineTags")).toBe(false);
         expect(Object.hasOwn(config, "modifierTags")).toBe(false);
-        expect(config.replaceText?.replacements).toStrictEqual([
-            {
-                pattern: String.raw`\bTODO:`,
-                replace: "**TODO:**",
-            },
-            {
-                pattern: String.raw`\bFIXME:`,
-                replace: "**FIXME:**",
-            },
-        ]);
+        expect(config.replaceText).toMatchObject({
+            inMarkdown: false,
+            replacements: [
+                {
+                    pattern: String.raw`\bTODO:`,
+                    replace: "**TODO:**",
+                },
+                {
+                    pattern: String.raw`\bFIXME:`,
+                    replace: "**FIXME:**",
+                },
+            ],
+        });
         expect(
             [
                 "entryPoints",
@@ -134,7 +137,7 @@ describe("typedoc-config-nick2bad4u", () => {
         ).toStrictEqual([]);
         expect(
             config.plugin?.filter((plugin) => plugin.startsWith("./"))
-        ).toStrictEqual([...packagedTypeDocPluginPaths]);
+        ).toStrictEqual([]);
     });
 
     it("can be consumed by TypeDoc through the packaged JSON export", async () => {

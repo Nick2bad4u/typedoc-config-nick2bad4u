@@ -38,29 +38,12 @@
             "require": null
         },
         "./typedoc.json": "./typedoc.json",
-        "./typedoc-plugins/hash-to-bang-links.mjs": {
-            "types": "./typedoc-plugins/hash-to-bang-links.d.mts",
-            "import": "./typedoc-plugins/hash-to-bang-links.mjs"
-        },
-        "./typedoc-plugins/hash-to-bang-links-core.mjs": {
-            "types": "./typedoc-plugins/hash-to-bang-links-core.d.mts",
-            "import": "./typedoc-plugins/hash-to-bang-links-core.mjs"
-        },
-        "./typedoc-plugins/prefix-doc-links.mjs": {
-            "types": "./typedoc-plugins/prefix-doc-links.d.mts",
-            "import": "./typedoc-plugins/prefix-doc-links.mjs"
-        },
-        "./typedoc-plugins/prefix-doc-links-core.mjs": {
-            "types": "./typedoc-plugins/prefix-doc-links-core.d.mts",
-            "import": "./typedoc-plugins/prefix-doc-links-core.mjs"
-        },
         "./package.json": "./package.json"
     },
     "main": "./dist/preset.js",
     "types": "./dist/preset.d.ts",
     "files": [
         "dist",
-        "typedoc-plugins",
         "typedoc.json"
     ],
     "scripts": {
@@ -111,8 +94,10 @@
     "dependencies": {
         "typedoc-docusaurus-theme": "^1.4.2",
         "typedoc-plugin-coverage": "^4.0.3",
+        "typedoc-plugin-docusaurus-doc-links": "^1.0.1",
         "typedoc-plugin-dt-links": "^2.0.59",
         "typedoc-plugin-external-package-links": "^0.2.0",
+        "typedoc-plugin-hash-link-references": "^1.0.1",
         "typedoc-plugin-markdown": "^4.12.0",
         "typedoc-plugin-mdn-links": "^5.1.1",
         "typedoc-plugin-missing-exports": "^4.1.3",

@@ -62,8 +62,6 @@
         "*.cjs",
         "src/**/*.ts",
         "test/**/*.ts",
-        "typedoc-plugins/**/*.d.mts",
-        "typedoc-plugins/**/*.mjs",
         "vite.config.ts"
     ]
 }

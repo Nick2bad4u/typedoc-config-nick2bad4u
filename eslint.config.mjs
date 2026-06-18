@@ -12,7 +12,6 @@ const config = [
             "*.mjs",
             ".*.mjs",
             "scripts/*.mjs",
-            "typedoc-plugins/*.mjs",
         ],
         rootDirectory,
         tsconfigPaths: ["./tsconfig.eslint.json"],

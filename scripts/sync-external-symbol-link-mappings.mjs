@@ -23,6 +23,49 @@ const typedocConfigPath = fileURLToPath(
  * @satisfies {ExternalSymbolLinkMappings}
  */
 const externalSymbolLinkMappings = {
+    "@docusaurus/plugin-content-docs": {
+        Options:
+            "https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-docs",
+        SidebarsConfig: "https://docusaurus.io/docs/sidebar",
+    },
+    "@docusaurus/types": {
+        Config: "https://docusaurus.io/docs/api/docusaurus-config",
+        LoadContext: "https://docusaurus.io/docs/api/plugin-methods",
+        Plugin: "https://docusaurus.io/docs/api/plugin-methods",
+        PluginConfig:
+            "https://docusaurus.io/docs/configuration#theme-plugin-and-preset-configurations",
+        PluginModule: "https://docusaurus.io/docs/api/plugin-methods",
+        PresetConfig:
+            "https://docusaurus.io/docs/configuration#theme-plugin-and-preset-configurations",
+        ThemeConfig:
+            "https://docusaurus.io/docs/api/docusaurus-config#themeconfig",
+    },
+    "@eslint/compat": {
+        fixupConfigRules:
+            "https://eslint.org/blog/2024/05/eslint-compatibility-utilities/",
+        fixupPluginRules:
+            "https://eslint.org/blog/2024/05/eslint-compatibility-utilities/",
+        includeIgnoreFile:
+            "https://eslint.org/blog/2024/05/eslint-compatibility-utilities/",
+    },
+    "@eslint/config-helpers": {
+        defineConfig:
+            "https://eslint.org/docs/latest/use/configure/configuration-files",
+        globalIgnores: "https://eslint.org/docs/latest/use/configure/ignore",
+    },
+    "@playwright/test": {
+        _electron: "https://playwright.dev/docs/api/class-electron",
+        defineConfig: "https://playwright.dev/docs/test-configuration",
+        devices: "https://playwright.dev/docs/emulation",
+        ElectronApplication:
+            "https://playwright.dev/docs/api/class-electronapplication",
+        expect: "https://playwright.dev/docs/test-assertions",
+        FullConfig: "https://playwright.dev/docs/api/class-fullconfig",
+        Locator: "https://playwright.dev/docs/api/class-locator",
+        Page: "https://playwright.dev/docs/api/class-page",
+        PlaywrightTestConfig: "https://playwright.dev/docs/test-configuration",
+        test: "https://playwright.dev/docs/api/class-test",
+    },
     "@testing-library/react": {
         fireEvent:
             "https://testing-library.com/docs/dom-testing-library/api-events",
@@ -30,6 +73,113 @@ const externalSymbolLinkMappings = {
         screen: "https://testing-library.com/docs/queries/about#screen",
         waitFor:
             "https://testing-library.com/docs/dom-testing-library/api-async#waitfor",
+    },
+    "@typescript-eslint/parser": {
+        ParserOptions: "https://typescript-eslint.io/packages/parser/",
+        parseForESLint: "https://typescript-eslint.io/packages/parser/",
+    },
+    "@typescript-eslint/rule-tester": {
+        RuleTester: "https://typescript-eslint.io/packages/rule-tester/",
+    },
+    "@typescript-eslint/type-utils": {
+        getConstrainedTypeAtLocation:
+            "https://typescript-eslint.io/packages/type-utils/",
+        isTypeReferenceType:
+            "https://typescript-eslint.io/packages/type-utils/",
+    },
+    "@typescript-eslint/utils": {
+        AST_NODE_TYPES: "https://typescript-eslint.io/packages/utils/",
+        AST_TOKEN_TYPES: "https://typescript-eslint.io/packages/utils/",
+        ESLintUtils:
+            "https://typescript-eslint.io/developers/custom-rules/#utils-package",
+        JSONSchema:
+            "https://typescript-eslint.io/developers/custom-rules/#rulecreator",
+        TSESLint:
+            "https://typescript-eslint.io/developers/custom-rules/#utils-package",
+        TSESTree:
+            "https://typescript-eslint.io/developers/custom-rules/#utils-package",
+    },
+    "@types/express-serve-static-core": {
+        Express: "https://expressjs.com/en/api/",
+        NextFunction: "https://expressjs.com/en/guide/error-handling.html",
+        Request: "https://expressjs.com/en/api/#req",
+        RequestHandler: "https://expressjs.com/en/guide/routing.html",
+        Response: "https://expressjs.com/en/api/#res",
+        Router: "https://expressjs.com/en/api/#router",
+    },
+    axios: {
+        AxiosError: "https://axios-http.com/docs/handling_errors",
+        AxiosInstance: "https://axios-http.com/docs/instance",
+        AxiosRequestConfig: "https://axios-http.com/docs/req_config",
+        AxiosResponse: "https://axios-http.com/docs/res_schema",
+        InternalAxiosRequestConfig: "https://axios-http.com/docs/req_config",
+        isAxiosError: "https://axios-http.com/docs/handling_errors",
+    },
+    ajv: {
+        Ajv: "https://ajv.js.org/api.html",
+        ErrorObject: "https://ajv.js.org/api.html#validation-errors",
+        ValidateFunction: "https://ajv.js.org/api.html",
+    },
+    commander: {
+        Command:
+            "https://github.com/tj/commander.js/blob/master/Readme.md#command",
+        CommanderError:
+            "https://github.com/tj/commander.js/blob/master/Readme.md#override-exit-and-output-handling",
+        InvalidArgumentError:
+            "https://github.com/tj/commander.js/blob/master/Readme.md#custom-option-processing",
+        Option: "https://github.com/tj/commander.js/blob/master/Readme.md#options",
+        program:
+            "https://github.com/tj/commander.js/blob/master/Readme.md#quick-start",
+    },
+    esbuild: {
+        BuildOptions: "https://esbuild.github.io/api/#build",
+        BuildResult: "https://esbuild.github.io/api/#build",
+        Plugin: "https://esbuild.github.io/plugins/#using-plugins",
+        TransformOptions: "https://esbuild.github.io/api/#transform",
+        build: "https://esbuild.github.io/api/#build",
+        context: "https://esbuild.github.io/api/#build",
+        transform: "https://esbuild.github.io/api/#transform",
+    },
+    eslint: {
+        ESLint: "https://eslint.org/docs/latest/integrate/nodejs-api#eslint-class",
+        Linter: "https://eslint.org/docs/latest/integrate/nodejs-api#linter",
+        RuleTester:
+            "https://eslint.org/docs/latest/integrate/nodejs-api#ruletester",
+        SourceCode:
+            "https://eslint.org/docs/latest/integrate/nodejs-api#sourcecode",
+        loadESLint:
+            "https://eslint.org/docs/latest/integrate/nodejs-api#loadeslint",
+    },
+    express: {
+        Express: "https://expressjs.com/en/api/",
+        NextFunction: "https://expressjs.com/en/guide/error-handling.html",
+        Request: "https://expressjs.com/en/api/#req",
+        RequestHandler: "https://expressjs.com/en/guide/routing.html",
+        Response: "https://expressjs.com/en/api/#res",
+        Router: "https://expressjs.com/en/api/#router",
+    },
+    fastify: {
+        FastifyInstance:
+            "https://fastify.dev/docs/latest/Reference/TypeScript/",
+        FastifyPluginAsync:
+            "https://fastify.dev/docs/latest/Reference/TypeScript/#creating-type-definitions-for-a-fastify-plugin",
+        FastifyPluginCallback:
+            "https://fastify.dev/docs/latest/Reference/TypeScript/#creating-type-definitions-for-a-fastify-plugin",
+        FastifyReply: "https://fastify.dev/docs/latest/Reference/TypeScript/",
+        FastifyRequest: "https://fastify.dev/docs/latest/Reference/TypeScript/",
+        RouteShorthandOptions:
+            "https://fastify.dev/docs/latest/Reference/Routes/",
+    },
+    "fast-check": {
+        Arbitrary: "https://fast-check.dev/docs/core-blocks/arbitraries/",
+        assert: "https://fast-check.dev/docs/introduction/getting-started/",
+        asyncProperty: "https://fast-check.dev/docs/core-blocks/properties/",
+        constant: "https://fast-check.dev/docs/core-blocks/arbitraries/",
+        integer: "https://fast-check.dev/docs/core-blocks/arbitraries/",
+        oneof: "https://fast-check.dev/docs/core-blocks/arbitraries/",
+        property: "https://fast-check.dev/docs/core-blocks/properties/",
+        string: "https://fast-check.dev/docs/core-blocks/arbitraries/",
+        test: "https://fast-check.dev/docs/tutorials/setting-up-your-test-environment/property-based-testing-with-vitest/",
     },
     javascript: {
         Array: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
@@ -50,6 +200,17 @@ const externalSymbolLinkMappings = {
         WeakSet:
             "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
     },
+    "jsonc-eslint-parser": {
+        AST: "https://github.com/ota-meshi/jsonc-eslint-parser/blob/master/docs/AST.md",
+        RuleListener: "https://github.com/ota-meshi/jsonc-eslint-parser",
+        getStaticJSONValue: "https://github.com/ota-meshi/jsonc-eslint-parser",
+        parseForESLint: "https://eslint.org/docs/latest/extend/custom-parsers",
+    },
+    minimatch: {
+        Minimatch: "https://github.com/isaacs/minimatch",
+        MinimatchOptions: "https://github.com/isaacs/minimatch",
+        minimatch: "https://github.com/isaacs/minimatch",
+    },
     node: {
         Buffer: "https://nodejs.org/docs/latest/api/buffer.html#class-buffer",
         crypto: "https://nodejs.org/docs/latest/api/crypto.html",
@@ -63,8 +224,41 @@ const externalSymbolLinkMappings = {
         process: "https://nodejs.org/docs/latest/api/process.html",
         url: "https://nodejs.org/docs/latest/api/url.html",
     },
+    next: {
+        GetServerSideProps:
+            "https://nextjs.org/docs/pages/api-reference/functions/get-server-side-props",
+        GetStaticProps:
+            "https://nextjs.org/docs/pages/api-reference/functions/get-static-props",
+        Metadata:
+            "https://nextjs.org/docs/app/api-reference/functions/generate-metadata",
+        NextApiRequest:
+            "https://nextjs.org/docs/pages/building-your-application/routing/api-routes",
+        NextApiResponse:
+            "https://nextjs.org/docs/pages/building-your-application/routing/api-routes",
+        NextConfig:
+            "https://nextjs.org/docs/app/api-reference/config/next-config-js",
+    },
     postcss: {
         Plugin: "https://postcss.org/api/#plugin",
+    },
+    prettier: {
+        Config: "https://prettier.io/docs/configuration",
+        Options: "https://prettier.io/docs/options",
+        Parser: "https://prettier.io/docs/plugins#parsers",
+        Plugin: "https://prettier.io/docs/plugins",
+        format: "https://prettier.io/docs/api.html#prettierformatsource-options",
+        resolveConfig:
+            "https://prettier.io/docs/api.html#prettierresolveconfigfileurlorpath-options",
+    },
+    picocolors: {
+        blue: "https://github.com/alexeyraspopov/picocolors",
+        bold: "https://github.com/alexeyraspopov/picocolors",
+        createColors: "https://github.com/alexeyraspopov/picocolors",
+        cyan: "https://github.com/alexeyraspopov/picocolors",
+        green: "https://github.com/alexeyraspopov/picocolors",
+        isColorSupported: "https://github.com/alexeyraspopov/picocolors",
+        red: "https://github.com/alexeyraspopov/picocolors",
+        yellow: "https://github.com/alexeyraspopov/picocolors",
     },
     react: {
         Component: "https://react.dev/reference/react/Component",
@@ -77,6 +271,22 @@ const externalSymbolLinkMappings = {
         useReducer: "https://react.dev/reference/react/useReducer",
         useRef: "https://react.dev/reference/react/useRef",
         useState: "https://react.dev/reference/react/useState",
+    },
+    "react-dom": {
+        createPortal: "https://react.dev/reference/react-dom/createPortal",
+        flushSync: "https://react.dev/reference/react-dom/flushSync",
+    },
+    remark: {
+        remark: "https://unifiedjs.com/explore/package/remark/",
+    },
+    rollup: {
+        OutputOptions:
+            "https://rollupjs.org/javascript-api/#outputoptions-object",
+        Plugin: "https://rollupjs.org/plugin-development/",
+        RollupOptions: "https://rollupjs.org/configuration-options/",
+        defineConfig: "https://rollupjs.org/configuration-options/",
+        rollup: "https://rollupjs.org/javascript-api/#rolluprollup",
+        watch: "https://rollupjs.org/javascript-api/#rollupwatch",
     },
     "ts-extras": {
         arrayAt:
@@ -143,17 +353,34 @@ const externalSymbolLinkMappings = {
         stringSplit:
             "https://github.com/sindresorhus/ts-extras/blob/main/source/string-split.ts",
     },
+    stylelint: {
+        Config: "https://stylelint.io/user-guide/configure/",
+        Plugin: "https://stylelint.io/developer-guide/plugins",
+        PostcssResult: "https://stylelint.io/user-guide/node-api/",
+        RuleBase: "https://stylelint.io/developer-guide/plugins",
+        lint: "https://stylelint.io/user-guide/node-api/",
+        stylelint: "https://stylelint.io/user-guide/node-api/",
+    },
+    typedoc: {
+        Application: "https://typedoc.org/api/classes/Application.html",
+        Comment: "https://typedoc.org/api/classes/Models.Comment.html",
+        CommentDisplayPart:
+            "https://typedoc.org/api/types/Models.CommentDisplayPart.html",
+        Converter: "https://typedoc.org/api/classes/Converter.html",
+        PageEvent: "https://typedoc.org/api/classes/PageEvent.html",
+        Reflection: "https://typedoc.org/api/classes/Models.Reflection.html",
+    },
     "type-fest": {
         AbstractClass:
-            "https://github.com/sindresorhus/type-fest/blob/main/source/abstract-class.d.ts",
+            "https://github.com/sindresorhus/type-fest/blob/main/source/basic.d.ts",
         AbstractConstructor:
-            "https://github.com/sindresorhus/type-fest/blob/main/source/abstract-constructor.d.ts",
+            "https://github.com/sindresorhus/type-fest/blob/main/source/basic.d.ts",
         AllExtend:
             "https://github.com/sindresorhus/type-fest/blob/main/source/all-extend.d.ts",
         AllUnionFields:
             "https://github.com/sindresorhus/type-fest/blob/main/source/all-union-fields.d.ts",
         Alphanumeric:
-            "https://github.com/sindresorhus/type-fest/blob/main/source/alphanumeric.d.ts",
+            "https://github.com/sindresorhus/type-fest/blob/main/source/characters.d.ts",
         And: "https://github.com/sindresorhus/type-fest/blob/main/source/and.d.ts",
         Arrayable:
             "https://github.com/sindresorhus/type-fest/blob/main/source/arrayable.d.ts",
@@ -179,7 +406,7 @@ const externalSymbolLinkMappings = {
             "https://github.com/sindresorhus/type-fest/blob/main/source/camel-cased-properties.d.ts",
         CamelCasedPropertiesDeep:
             "https://github.com/sindresorhus/type-fest/blob/main/source/camel-cased-properties-deep.d.ts",
-        Class: "https://github.com/sindresorhus/type-fest/blob/main/source/class.d.ts",
+        Class: "https://github.com/sindresorhus/type-fest/blob/main/source/basic.d.ts",
         ConditionalExcept:
             "https://github.com/sindresorhus/type-fest/blob/main/source/conditional-except.d.ts",
         ConditionalKeys:
@@ -193,7 +420,7 @@ const externalSymbolLinkMappings = {
         ConditionalSimplifyDeep:
             "https://github.com/sindresorhus/type-fest/blob/main/source/conditional-simplify-deep.d.ts",
         Constructor:
-            "https://github.com/sindresorhus/type-fest/blob/main/source/constructor.d.ts",
+            "https://github.com/sindresorhus/type-fest/blob/main/source/basic.d.ts",
         DelimiterCase:
             "https://github.com/sindresorhus/type-fest/blob/main/source/delimiter-case.d.ts",
         DelimiterCasedProperties:
@@ -201,7 +428,7 @@ const externalSymbolLinkMappings = {
         DelimiterCasedPropertiesDeep:
             "https://github.com/sindresorhus/type-fest/blob/main/source/delimiter-cased-properties-deep.d.ts",
         DigitCharacter:
-            "https://github.com/sindresorhus/type-fest/blob/main/source/digit-character.d.ts",
+            "https://github.com/sindresorhus/type-fest/blob/main/source/characters.d.ts",
         DistributedOmit:
             "https://github.com/sindresorhus/type-fest/blob/main/source/distributed-omit.d.ts",
         DistributedPick:
@@ -226,13 +453,13 @@ const externalSymbolLinkMappings = {
         ExtractStrict:
             "https://github.com/sindresorhus/type-fest/blob/main/source/extract-strict.d.ts",
         FindGlobalInstanceType:
-            "https://github.com/sindresorhus/type-fest/blob/main/source/find-global-instance-type.d.ts",
+            "https://github.com/sindresorhus/type-fest/blob/main/source/find-global-type.d.ts",
         FindGlobalType:
             "https://github.com/sindresorhus/type-fest/blob/main/source/find-global-type.d.ts",
-        Finite: "https://github.com/sindresorhus/type-fest/blob/main/source/finite.d.ts",
+        Finite: "https://github.com/sindresorhus/type-fest/blob/main/source/numeric.d.ts",
         FixedLengthArray:
             "https://github.com/sindresorhus/type-fest/blob/main/source/fixed-length-array.d.ts",
-        Float: "https://github.com/sindresorhus/type-fest/blob/main/source/float.d.ts",
+        Float: "https://github.com/sindresorhus/type-fest/blob/main/source/numeric.d.ts",
         Get: "https://github.com/sindresorhus/type-fest/blob/main/source/get.d.ts",
         GlobalThis:
             "https://github.com/sindresorhus/type-fest/blob/main/source/global-this.d.ts",
@@ -254,16 +481,16 @@ const externalSymbolLinkMappings = {
         IntClosedRange:
             "https://github.com/sindresorhus/type-fest/blob/main/source/int-closed-range.d.ts",
         Integer:
-            "https://github.com/sindresorhus/type-fest/blob/main/source/integer.d.ts",
+            "https://github.com/sindresorhus/type-fest/blob/main/source/numeric.d.ts",
         IntRange:
             "https://github.com/sindresorhus/type-fest/blob/main/source/int-range.d.ts",
         InvariantOf:
             "https://github.com/sindresorhus/type-fest/blob/main/source/invariant-of.d.ts",
         IsAny: "https://github.com/sindresorhus/type-fest/blob/main/source/is-any.d.ts",
         IsBooleanLiteral:
-            "https://github.com/sindresorhus/type-fest/blob/main/source/is-boolean-literal.d.ts",
+            "https://github.com/sindresorhus/type-fest/blob/main/source/is-literal.d.ts",
         IsEmptyObject:
-            "https://github.com/sindresorhus/type-fest/blob/main/source/is-empty-object.d.ts",
+            "https://github.com/sindresorhus/type-fest/blob/main/source/empty-object.d.ts",
         IsEqual:
             "https://github.com/sindresorhus/type-fest/blob/main/source/is-equal.d.ts",
         IsFloat:
@@ -275,14 +502,14 @@ const externalSymbolLinkMappings = {
         IsLowercase:
             "https://github.com/sindresorhus/type-fest/blob/main/source/is-lowercase.d.ts",
         IsNegative:
-            "https://github.com/sindresorhus/type-fest/blob/main/source/is-negative.d.ts",
+            "https://github.com/sindresorhus/type-fest/blob/main/source/numeric.d.ts",
         IsNever:
             "https://github.com/sindresorhus/type-fest/blob/main/source/is-never.d.ts",
         IsNull: "https://github.com/sindresorhus/type-fest/blob/main/source/is-null.d.ts",
         IsNullable:
             "https://github.com/sindresorhus/type-fest/blob/main/source/is-nullable.d.ts",
         IsNumericLiteral:
-            "https://github.com/sindresorhus/type-fest/blob/main/source/is-numeric-literal.d.ts",
+            "https://github.com/sindresorhus/type-fest/blob/main/source/is-literal.d.ts",
         IsOptional:
             "https://github.com/sindresorhus/type-fest/blob/main/source/is-optional.d.ts",
         IsOptionalKeyOf:
@@ -292,9 +519,9 @@ const externalSymbolLinkMappings = {
         IsRequiredKeyOf:
             "https://github.com/sindresorhus/type-fest/blob/main/source/is-required-key-of.d.ts",
         IsStringLiteral:
-            "https://github.com/sindresorhus/type-fest/blob/main/source/is-string-literal.d.ts",
+            "https://github.com/sindresorhus/type-fest/blob/main/source/is-literal.d.ts",
         IsSymbolLiteral:
-            "https://github.com/sindresorhus/type-fest/blob/main/source/is-symbol-literal.d.ts",
+            "https://github.com/sindresorhus/type-fest/blob/main/source/is-literal.d.ts",
         IsTuple:
             "https://github.com/sindresorhus/type-fest/blob/main/source/is-tuple.d.ts",
         IsUndefined:
@@ -345,7 +572,7 @@ const externalSymbolLinkMappings = {
         LiteralUnion:
             "https://github.com/sindresorhus/type-fest/blob/main/source/literal-union.d.ts",
         LowercaseLetter:
-            "https://github.com/sindresorhus/type-fest/blob/main/source/lowercase-letter.d.ts",
+            "https://github.com/sindresorhus/type-fest/blob/main/source/characters.d.ts",
         Merge: "https://github.com/sindresorhus/type-fest/blob/main/source/merge.d.ts",
         MergeDeep:
             "https://github.com/sindresorhus/type-fest/blob/main/source/merge-deep.d.ts",
@@ -356,13 +583,13 @@ const externalSymbolLinkMappings = {
         MultidimensionalReadonlyArray:
             "https://github.com/sindresorhus/type-fest/blob/main/source/multidimensional-readonly-array.d.ts",
         Negative:
-            "https://github.com/sindresorhus/type-fest/blob/main/source/negative.d.ts",
+            "https://github.com/sindresorhus/type-fest/blob/main/source/numeric.d.ts",
         NegativeFloat:
-            "https://github.com/sindresorhus/type-fest/blob/main/source/negative-float.d.ts",
+            "https://github.com/sindresorhus/type-fest/blob/main/source/numeric.d.ts",
         NegativeInfinity:
-            "https://github.com/sindresorhus/type-fest/blob/main/source/negative-infinity.d.ts",
+            "https://github.com/sindresorhus/type-fest/blob/main/source/numeric.d.ts",
         NegativeInteger:
-            "https://github.com/sindresorhus/type-fest/blob/main/source/negative-integer.d.ts",
+            "https://github.com/sindresorhus/type-fest/blob/main/source/numeric.d.ts",
         NonEmptyObject:
             "https://github.com/sindresorhus/type-fest/blob/main/source/non-empty-object.d.ts",
         NonEmptyString:
@@ -370,11 +597,11 @@ const externalSymbolLinkMappings = {
         NonEmptyTuple:
             "https://github.com/sindresorhus/type-fest/blob/main/source/non-empty-tuple.d.ts",
         NonNegative:
-            "https://github.com/sindresorhus/type-fest/blob/main/source/non-negative.d.ts",
+            "https://github.com/sindresorhus/type-fest/blob/main/source/numeric.d.ts",
         NonNegativeInteger:
-            "https://github.com/sindresorhus/type-fest/blob/main/source/non-negative-integer.d.ts",
+            "https://github.com/sindresorhus/type-fest/blob/main/source/numeric.d.ts",
         ObservableLike:
-            "https://github.com/sindresorhus/type-fest/blob/main/source/observable-like.d.ts",
+            "https://github.com/sindresorhus/type-fest/tree/main/source",
         OmitDeep:
             "https://github.com/sindresorhus/type-fest/blob/main/source/omit-deep.d.ts",
         OmitIndexSignature:
@@ -402,7 +629,7 @@ const externalSymbolLinkMappings = {
         PickIndexSignature:
             "https://github.com/sindresorhus/type-fest/blob/main/source/pick-index-signature.d.ts",
         PositiveInfinity:
-            "https://github.com/sindresorhus/type-fest/blob/main/source/positive-infinity.d.ts",
+            "https://github.com/sindresorhus/type-fest/blob/main/source/numeric.d.ts",
         Primitive:
             "https://github.com/sindresorhus/type-fest/blob/main/source/primitive.d.ts",
         Promisable:
@@ -514,9 +741,9 @@ const externalSymbolLinkMappings = {
         UnwrapRequired:
             "https://github.com/sindresorhus/type-fest/blob/main/source/unwrap-required.d.ts",
         UnwrapTagged:
-            "https://github.com/sindresorhus/type-fest/blob/main/source/unwrap-tagged.d.ts",
+            "https://github.com/sindresorhus/type-fest/blob/main/source/tagged.d.ts",
         UppercaseLetter:
-            "https://github.com/sindresorhus/type-fest/blob/main/source/uppercase-letter.d.ts",
+            "https://github.com/sindresorhus/type-fest/blob/main/source/characters.d.ts",
         ValueOf:
             "https://github.com/sindresorhus/type-fest/blob/main/source/value-of.d.ts",
         Words: "https://github.com/sindresorhus/type-fest/blob/main/source/words.d.ts",
@@ -550,6 +777,21 @@ const externalSymbolLinkMappings = {
         ReturnType:
             "https://www.typescriptlang.org/docs/handbook/utility-types.html#returntypetype",
     },
+    "typescript-eslint": {
+        config: "https://typescript-eslint.io/packages/typescript-eslint/",
+        configs: "https://typescript-eslint.io/packages/typescript-eslint/",
+        parser: "https://typescript-eslint.io/packages/typescript-eslint/",
+        plugin: "https://typescript-eslint.io/packages/typescript-eslint/",
+    },
+    unified: {
+        Pluggable: "https://unifiedjs.com/explore/package/unified/",
+        Plugin: "https://unifiedjs.com/explore/package/unified/",
+        Preset: "https://unifiedjs.com/explore/package/unified/",
+        unified: "https://unifiedjs.com/explore/package/unified/",
+    },
+    vfile: {
+        VFile: "https://unifiedjs.com/explore/package/vfile/",
+    },
     vite: {
         defineConfig: "https://vitejs.dev/config/",
         Plugin: "https://vitejs.dev/guide/api-plugin.html",
@@ -578,6 +820,28 @@ const externalSymbolLinkMappings = {
         ZodString: "https://zod.dev/?id=strings",
         ZodType: "https://zod.dev/?id=basic-usage",
         ZodUnion: "https://zod.dev/?id=unions",
+    },
+    yaml: {
+        Document: "https://eemeli.org/yaml/",
+        parse: "https://eemeli.org/yaml/",
+        parseDocument: "https://eemeli.org/yaml/",
+        stringify: "https://eemeli.org/yaml/",
+    },
+    "yaml-eslint-parser": {
+        AST: "https://github.com/ota-meshi/yaml-eslint-parser/blob/master/docs/AST.md",
+        getStaticYAMLValue: "https://github.com/ota-meshi/yaml-eslint-parser",
+        parseForESLint: "https://eslint.org/docs/latest/extend/custom-parsers",
+    },
+    vue: {
+        Component: "https://vuejs.org/api/",
+        Ref: "https://vuejs.org/api/reactivity-core.html#ref",
+        computed: "https://vuejs.org/api/reactivity-core.html#computed",
+        defineComponent: "https://vuejs.org/api/general.html#definecomponent",
+        nextTick: "https://vuejs.org/api/general.html#nexttick",
+        reactive: "https://vuejs.org/api/reactivity-core.html#reactive",
+        ref: "https://vuejs.org/api/reactivity-core.html#ref",
+        watch: "https://vuejs.org/api/reactivity-core.html#watch",
+        watchEffect: "https://vuejs.org/api/reactivity-core.html#watcheffect",
     },
 };
 
