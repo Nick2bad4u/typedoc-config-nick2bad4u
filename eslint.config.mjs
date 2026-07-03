@@ -23,6 +23,13 @@ const config = [
             "import-x/extensions": "off",
         },
     },
+    {
+        files: ["**/*.toml"],
+        rules: {
+            // Tombi 1.1.7 formats the same TOML differently on Windows and Linux.
+            "tombi/tombi": "off",
+        },
+    },
 ];
 
 export default config;

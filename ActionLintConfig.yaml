@@ -1,3 +1,5 @@
 # ActionLint configuration for typedoc-config-nick2bad4u.
+config-variables: []
+paths: {}
 self-hosted-runner:
     labels: []
