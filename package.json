@@ -91,6 +91,11 @@
         "update-deps": "npx ncu -i --install never && npm update --force && npm install --force && npm run sync:node-version-files",
         "verify": "npm run release:verify"
     },
+    "overrides": {
+        "tsup": {
+            "esbuild": "^0.28.1"
+        }
+    },
     "dependencies": {
         "typedoc-docusaurus-theme": "^1.4.2",
         "typedoc-plugin-coverage": "^4.0.3",
