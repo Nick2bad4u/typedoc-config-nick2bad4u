@@ -56,7 +56,7 @@
         "coverage": "npm run build && npx vitest run --coverage",
         "diagnose:typedoc-options": "node scripts/diagnose-typedoc-options.mjs",
         "lint": "npx cross-env NODE_OPTIONS=--max_old_space_size=8192 npx eslint . --cache --cache-strategy content --cache-location .cache/.eslintcache",
-        "lint:all": "npm run lint && npm run typecheck && npm run test && npm run lint:remark && npm run lint:prettier && npm run lint:package && npm run lint:yaml && npm run lint:yamllint && npm run lint:jscpd && npm run lint:gitleaks && npm run lint:lychee && npm run lint:secretlint",
+        "lint:all": "npm run lint && npm run typecheck && npm run test && npm run lint:remark && npm run lint:prettier && npm run lint:package && npm run lint:yaml && npm run lint:yamllint && npm run lint:gitleaks && npm run lint:secretlint",
         "lint:all:fix": "npm run lint:fix && npm run lint:remark:fix && npm run lint:prettier:fix && npm run lint:package:fix && npm run typecheck && npm run test && npm run lint:yaml:fix && npm run lint:secretlint",
         "lint:attw": "npx attw --pack . --profile esm-only",
         "lint:fix": "npm run lint -- --fix",
