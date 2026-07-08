@@ -6,3 +6,5 @@ temp/
 *.tsbuildinfo
 test-report.junit.xml
 *.tgz
+.lychee.report.md
+.lycheecache
