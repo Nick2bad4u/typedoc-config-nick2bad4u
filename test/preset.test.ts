@@ -173,6 +173,10 @@ describe("typedoc-config-nick2bad4u", () => {
                     )}\n`
                 ),
                 writeFile(
+                    nodePath.join(fixtureDirectory, "prettier.config.mjs"),
+                    "export default {};\n"
+                ),
+                writeFile(
                     nodePath.join(fixtureDirectory, "src", "index.ts"),
                     [
                         "/** Adds two numbers. */",
@@ -207,6 +211,7 @@ describe("typedoc-config-nick2bad4u", () => {
                             entryPoints: ["src/index.ts"],
                             extends: ["typedoc-config-nick2bad4u/typedoc.json"],
                             out: "api",
+                            prettierConfigFile: "prettier.config.mjs",
                             tsconfig: "tsconfig.json",
                         },
                         null,
