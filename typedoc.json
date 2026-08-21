@@ -51,7 +51,7 @@
             "PluginConfig": "https://docusaurus.io/docs/configuration#theme-plugin-and-preset-configurations",
             "PluginModule": "https://docusaurus.io/docs/api/plugin-methods",
             "PresetConfig": "https://docusaurus.io/docs/configuration#theme-plugin-and-preset-configurations",
-            "ThemeConfig": "https://docusaurus.io/docs/api/docusaurus-config#themeconfig"
+            "ThemeConfig": "https://docusaurus.io/docs/api/docusaurus-config#themeConfig"
         },
         "@eslint/compat": {
             "fixupConfigRules": "https://eslint.org/blog/2024/05/eslint-compatibility-utilities/",
@@ -81,12 +81,12 @@
             "waitFor": "https://testing-library.com/docs/dom-testing-library/api-async#waitfor"
         },
         "@types/express-serve-static-core": {
-            "Express": "https://expressjs.com/en/api/",
+            "Express": "https://expressjs.com/en/5x/api/",
             "NextFunction": "https://expressjs.com/en/guide/error-handling.html",
-            "Request": "https://expressjs.com/en/api/#req",
+            "Request": "https://expressjs.com/en/5x/api/",
             "RequestHandler": "https://expressjs.com/en/guide/routing.html",
-            "Response": "https://expressjs.com/en/api/#res",
-            "Router": "https://expressjs.com/en/api/#router"
+            "Response": "https://expressjs.com/en/5x/api/",
+            "Router": "https://expressjs.com/en/5x/api/"
         },
         "@typescript-eslint/parser": {
             "ParserOptions": "https://typescript-eslint.io/packages/parser/",
@@ -121,11 +121,11 @@
             "isAxiosError": "https://axios-http.com/docs/handling_errors"
         },
         "commander": {
-            "Command": "https://github.com/tj/commander.js/blob/master/Readme.md#command",
-            "CommanderError": "https://github.com/tj/commander.js/blob/master/Readme.md#override-exit-and-output-handling",
-            "InvalidArgumentError": "https://github.com/tj/commander.js/blob/master/Readme.md#custom-option-processing",
-            "Option": "https://github.com/tj/commander.js/blob/master/Readme.md#options",
-            "program": "https://github.com/tj/commander.js/blob/master/Readme.md#quick-start"
+            "Command": "https://github.com/tj/commander.js/blob/master/Readme.md",
+            "CommanderError": "https://github.com/tj/commander.js/blob/master/Readme.md",
+            "InvalidArgumentError": "https://github.com/tj/commander.js/blob/master/Readme.md",
+            "Option": "https://github.com/tj/commander.js/blob/master/Readme.md",
+            "program": "https://github.com/tj/commander.js/blob/master/Readme.md"
         },
         "esbuild": {
             "BuildOptions": "https://esbuild.github.io/api/#build",
@@ -144,12 +144,12 @@
             "loadESLint": "https://eslint.org/docs/latest/integrate/nodejs-api#loadeslint"
         },
         "express": {
-            "Express": "https://expressjs.com/en/api/",
+            "Express": "https://expressjs.com/en/5x/api/",
             "NextFunction": "https://expressjs.com/en/guide/error-handling.html",
-            "Request": "https://expressjs.com/en/api/#req",
+            "Request": "https://expressjs.com/en/5x/api/",
             "RequestHandler": "https://expressjs.com/en/guide/routing.html",
-            "Response": "https://expressjs.com/en/api/#res",
-            "Router": "https://expressjs.com/en/api/#router"
+            "Response": "https://expressjs.com/en/5x/api/",
+            "Router": "https://expressjs.com/en/5x/api/"
         },
         "fast-check": {
             "Arbitrary": "https://fast-check.dev/docs/core-blocks/arbitraries/",
@@ -235,12 +235,12 @@
             "Parser": "https://prettier.io/docs/plugins#parsers",
             "Plugin": "https://prettier.io/docs/plugins",
             "format": "https://prettier.io/docs/api.html#prettierformatsource-options",
-            "resolveConfig": "https://prettier.io/docs/api.html#prettierresolveconfigfileurlorpath-options"
+            "resolveConfig": "https://prettier.io/docs/api"
         },
         "react": {
             "Component": "https://react.dev/reference/react/Component",
             "JSX": "https://react.dev/learn/writing-markup-with-jsx",
-            "ReactNode": "https://react.dev/reference/react/Children#react-node-type",
+            "ReactNode": "https://react.dev/reference/react/Children",
             "useCallback": "https://react.dev/reference/react/useCallback",
             "useContext": "https://react.dev/reference/react/useContext",
             "useEffect": "https://react.dev/reference/react/useEffect",
@@ -261,8 +261,8 @@
             "Plugin": "https://rollupjs.org/plugin-development/",
             "RollupOptions": "https://rollupjs.org/configuration-options/",
             "defineConfig": "https://rollupjs.org/configuration-options/",
-            "rollup": "https://rollupjs.org/javascript-api/#rolluprollup",
-            "watch": "https://rollupjs.org/javascript-api/#rollupwatch"
+            "rollup": "https://rollupjs.org/javascript-api/#rollup-rollup",
+            "watch": "https://rollupjs.org/javascript-api/#rollup-watch"
         },
         "stylelint": {
             "Config": "https://stylelint.io/user-guide/configure/",
@@ -514,15 +514,15 @@
         },
         "typedoc": {
             "Application": "https://typedoc.org/api/classes/Application.html",
-            "Comment": "https://typedoc.org/api/classes/Models.Comment.html",
-            "CommentDisplayPart": "https://typedoc.org/api/types/Models.CommentDisplayPart.html",
+            "Comment": "https://typedoc.org/api/classes/Comment.html",
+            "CommentDisplayPart": "https://typedoc.org/api/types/CommentDisplayPart.html",
             "Converter": "https://typedoc.org/api/classes/Converter.html",
             "PageEvent": "https://typedoc.org/api/classes/PageEvent.html",
-            "Reflection": "https://typedoc.org/api/classes/Models.Reflection.html"
+            "Reflection": "https://typedoc.org/api/classes/Reflection.html"
         },
         "typescript": {
             "ArrayBufferView": "#",
-            "Exclude": "https://www.typescriptlang.org/docs/handbook/utility-types.html#excludetype-excludedunion",
+            "Exclude": "https://www.typescriptlang.org/docs/handbook/utility-types.html#excludeuniontype-excludedmembers",
             "Extract": "https://www.typescriptlang.org/docs/handbook/utility-types.html#extracttype-union",
             "NonNullable": "https://www.typescriptlang.org/docs/handbook/utility-types.html#nonnullabletype",
             "Omit": "https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys",
@@ -555,12 +555,12 @@
             "defineConfig": "https://vitejs.dev/config/"
         },
         "vitest": {
-            "afterAll": "https://vitest.dev/api/#afterall",
-            "afterEach": "https://vitest.dev/api/#aftereach",
-            "beforeAll": "https://vitest.dev/api/#beforeall",
-            "beforeEach": "https://vitest.dev/api/#beforeeach",
-            "describe": "https://vitest.dev/api/#describe",
-            "expect": "https://vitest.dev/api/#expect",
+            "afterAll": "https://vitest.dev/api/#test-afterall",
+            "afterEach": "https://vitest.dev/api/#test-aftereach",
+            "beforeAll": "https://vitest.dev/api/#test-beforeall",
+            "beforeEach": "https://vitest.dev/api/#test-beforeeach",
+            "describe": "https://vitest.dev/api/#test-describe",
+            "expect": "https://vitest.dev/api/expect.html#expect",
             "it": "https://vitest.dev/api/#test",
             "test": "https://vitest.dev/api/#test"
         },
