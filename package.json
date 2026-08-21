@@ -54,6 +54,7 @@
         "changelog:release-notes": "git cliff --config node_modules/gitcliff-config-nick2bad4u/cliff.toml --github-repo Nick2bad4u/typedoc-config-nick2bad4u --current",
         "clean:dist": "node scripts/clean-dist.mjs",
         "coverage": "npm run build && vitest run --coverage",
+        "coverage:ci": "npm run build && vitest run --coverage --reporter=github-actions --reporter=dot --reporter=junit --outputFile=test-report.junit.xml --silent",
         "diagnose:typedoc-options": "node scripts/diagnose-typedoc-options.mjs",
         "lint": "cross-env NODE_OPTIONS=--max_old_space_size=8192 eslint . --cache --cache-strategy content --cache-location .cache/.eslintcache",
         "lint:all": "npm run lint && npm run typecheck && npm run test && npm run lint:remark && npm run lint:prettier && npm run lint:package && npm run lint:yaml && npm run lint:yamllint && npm run lint:gitleaks && npm run lint:secretlint",

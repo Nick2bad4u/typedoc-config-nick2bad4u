@@ -75,7 +75,7 @@ jobs:
               run: "npm run typecheck"
 
             - name: "Run tests with coverage and JUnit report"
-              run: "npm exec --ignore-scripts -- vitest -- run --coverage --reporter=github-actions --reporter=dot --reporter=junit --outputFile=test-report.junit.xml --silent"
+              run: "npm run coverage:ci"
               env:
                   CI: "true"
                   MAX_THREADS: "1"
