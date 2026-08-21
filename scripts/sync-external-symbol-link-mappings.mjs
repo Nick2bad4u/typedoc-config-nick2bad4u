@@ -848,8 +848,17 @@ const externalSymbolLinkMappings = {
  * @param {string} left
  * @param {string} right
  */
-const compareJsonKeys = (left, right) =>
-    left < right ? -1 : left > right ? 1 : 0;
+const compareJsonKeys = (left, right) => {
+    if (left < right) {
+        return -1;
+    }
+
+    if (left > right) {
+        return 1;
+    }
+
+    return 0;
+};
 
 /**
  * @param {Record<string, string>} record
