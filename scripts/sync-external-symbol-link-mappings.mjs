@@ -38,7 +38,7 @@ const externalSymbolLinkMappings = {
         PresetConfig:
             "https://docusaurus.io/docs/configuration#theme-plugin-and-preset-configurations",
         ThemeConfig:
-            "https://docusaurus.io/docs/api/docusaurus-config#themeconfig",
+            "https://docusaurus.io/docs/api/docusaurus-config#themeConfig",
     },
     "@eslint/compat": {
         fixupConfigRules:
@@ -100,12 +100,12 @@ const externalSymbolLinkMappings = {
             "https://typescript-eslint.io/developers/custom-rules/#utils-package",
     },
     "@types/express-serve-static-core": {
-        Express: "https://expressjs.com/en/api/",
+        Express: "https://expressjs.com/en/5x/api/",
         NextFunction: "https://expressjs.com/en/guide/error-handling.html",
-        Request: "https://expressjs.com/en/api/#req",
+        Request: "https://expressjs.com/en/5x/api/",
         RequestHandler: "https://expressjs.com/en/guide/routing.html",
-        Response: "https://expressjs.com/en/api/#res",
-        Router: "https://expressjs.com/en/api/#router",
+        Response: "https://expressjs.com/en/5x/api/",
+        Router: "https://expressjs.com/en/5x/api/",
     },
     axios: {
         AxiosError: "https://axios-http.com/docs/handling_errors",
@@ -121,15 +121,13 @@ const externalSymbolLinkMappings = {
         ValidateFunction: "https://ajv.js.org/api.html",
     },
     commander: {
-        Command:
-            "https://github.com/tj/commander.js/blob/master/Readme.md#command",
+        Command: "https://github.com/tj/commander.js/blob/master/Readme.md",
         CommanderError:
-            "https://github.com/tj/commander.js/blob/master/Readme.md#override-exit-and-output-handling",
+            "https://github.com/tj/commander.js/blob/master/Readme.md",
         InvalidArgumentError:
-            "https://github.com/tj/commander.js/blob/master/Readme.md#custom-option-processing",
-        Option: "https://github.com/tj/commander.js/blob/master/Readme.md#options",
-        program:
-            "https://github.com/tj/commander.js/blob/master/Readme.md#quick-start",
+            "https://github.com/tj/commander.js/blob/master/Readme.md",
+        Option: "https://github.com/tj/commander.js/blob/master/Readme.md",
+        program: "https://github.com/tj/commander.js/blob/master/Readme.md",
     },
     esbuild: {
         BuildOptions: "https://esbuild.github.io/api/#build",
@@ -151,12 +149,12 @@ const externalSymbolLinkMappings = {
             "https://eslint.org/docs/latest/integrate/nodejs-api#loadeslint",
     },
     express: {
-        Express: "https://expressjs.com/en/api/",
+        Express: "https://expressjs.com/en/5x/api/",
         NextFunction: "https://expressjs.com/en/guide/error-handling.html",
-        Request: "https://expressjs.com/en/api/#req",
+        Request: "https://expressjs.com/en/5x/api/",
         RequestHandler: "https://expressjs.com/en/guide/routing.html",
-        Response: "https://expressjs.com/en/api/#res",
-        Router: "https://expressjs.com/en/api/#router",
+        Response: "https://expressjs.com/en/5x/api/",
+        Router: "https://expressjs.com/en/5x/api/",
     },
     fastify: {
         FastifyInstance:
@@ -247,8 +245,7 @@ const externalSymbolLinkMappings = {
         Parser: "https://prettier.io/docs/plugins#parsers",
         Plugin: "https://prettier.io/docs/plugins",
         format: "https://prettier.io/docs/api.html#prettierformatsource-options",
-        resolveConfig:
-            "https://prettier.io/docs/api.html#prettierresolveconfigfileurlorpath-options",
+        resolveConfig: "https://prettier.io/docs/api",
     },
     picocolors: {
         blue: "https://github.com/alexeyraspopov/picocolors",
@@ -263,7 +260,7 @@ const externalSymbolLinkMappings = {
     react: {
         Component: "https://react.dev/reference/react/Component",
         JSX: "https://react.dev/learn/writing-markup-with-jsx",
-        ReactNode: "https://react.dev/reference/react/Children#react-node-type",
+        ReactNode: "https://react.dev/reference/react/Children",
         useCallback: "https://react.dev/reference/react/useCallback",
         useContext: "https://react.dev/reference/react/useContext",
         useEffect: "https://react.dev/reference/react/useEffect",
@@ -285,8 +282,8 @@ const externalSymbolLinkMappings = {
         Plugin: "https://rollupjs.org/plugin-development/",
         RollupOptions: "https://rollupjs.org/configuration-options/",
         defineConfig: "https://rollupjs.org/configuration-options/",
-        rollup: "https://rollupjs.org/javascript-api/#rolluprollup",
-        watch: "https://rollupjs.org/javascript-api/#rollupwatch",
+        rollup: "https://rollupjs.org/javascript-api/#rollup-rollup",
+        watch: "https://rollupjs.org/javascript-api/#rollup-watch",
     },
     "ts-extras": {
         arrayAt:
@@ -363,12 +360,12 @@ const externalSymbolLinkMappings = {
     },
     typedoc: {
         Application: "https://typedoc.org/api/classes/Application.html",
-        Comment: "https://typedoc.org/api/classes/Models.Comment.html",
+        Comment: "https://typedoc.org/api/classes/Comment.html",
         CommentDisplayPart:
-            "https://typedoc.org/api/types/Models.CommentDisplayPart.html",
+            "https://typedoc.org/api/types/CommentDisplayPart.html",
         Converter: "https://typedoc.org/api/classes/Converter.html",
         PageEvent: "https://typedoc.org/api/classes/PageEvent.html",
-        Reflection: "https://typedoc.org/api/classes/Models.Reflection.html",
+        Reflection: "https://typedoc.org/api/classes/Reflection.html",
     },
     "type-fest": {
         AbstractClass:
@@ -758,7 +755,7 @@ const externalSymbolLinkMappings = {
     typescript: {
         ArrayBufferView: "#",
         Exclude:
-            "https://www.typescriptlang.org/docs/handbook/utility-types.html#excludetype-excludedunion",
+            "https://www.typescriptlang.org/docs/handbook/utility-types.html#excludeuniontype-excludedmembers",
         Extract:
             "https://www.typescriptlang.org/docs/handbook/utility-types.html#extracttype-union",
         NonNullable:
@@ -798,12 +795,12 @@ const externalSymbolLinkMappings = {
         UserConfig: "https://vitejs.dev/config/",
     },
     vitest: {
-        afterAll: "https://vitest.dev/api/#afterall",
-        afterEach: "https://vitest.dev/api/#aftereach",
-        beforeAll: "https://vitest.dev/api/#beforeall",
-        beforeEach: "https://vitest.dev/api/#beforeeach",
-        describe: "https://vitest.dev/api/#describe",
-        expect: "https://vitest.dev/api/#expect",
+        afterAll: "https://vitest.dev/api/#test-afterall",
+        afterEach: "https://vitest.dev/api/#test-aftereach",
+        beforeAll: "https://vitest.dev/api/#test-beforeall",
+        beforeEach: "https://vitest.dev/api/#test-beforeeach",
+        describe: "https://vitest.dev/api/#test-describe",
+        expect: "https://vitest.dev/api/expect.html#expect",
         it: "https://vitest.dev/api/#test",
         test: "https://vitest.dev/api/#test",
     },
