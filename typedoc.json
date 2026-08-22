@@ -602,6 +602,7 @@
         }
     },
     "formatWithPrettier": true,
+    "githubPages": false,
     "groupReferencesByType": false,
     "headings": true,
     "highlightLanguages": [
@@ -627,6 +628,7 @@
         "diff"
     ],
     "includeDocCommentReferences": false,
+    "includeHierarchySummary": true,
     "includeVersion": true,
     "jsDocCompatibility": {
         "defaultTag": true,
@@ -707,6 +709,7 @@
         ]
     },
     "resolveUtilityTypes": true,
+    "router": "member",
     "sanitizeComments": true,
     "showConfig": false,
     "skipErrorChecking": false,

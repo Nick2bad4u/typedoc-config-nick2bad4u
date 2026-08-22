@@ -26,6 +26,7 @@ const typedocConfigPath = fileURLToPath(
  */
 const projectLocalOptions = new Set([
     "basePath",
+    "categoryOrder",
     "cname",
     "compilerOptions",
     "customCss",
@@ -34,6 +35,8 @@ const projectLocalOptions = new Set([
     "displayBasePath",
     "entryPoints",
     "entryPointStrategy",
+    "excludeCategories",
+    "excludeNotDocumentedKinds",
     "extends",
     "favicon",
     "gitRemote",
@@ -53,6 +56,8 @@ const projectLocalOptions = new Set([
     "packageOptions",
     "packagesRequiringDocumentation",
     "projectDocuments",
+    "preservedTypeAnnotationTags",
+    "requiredToBeDocumented",
     "sidebarLinks",
     "sourceLinkTemplate",
     "titleLink",
@@ -65,20 +70,10 @@ const projectLocalOptions = new Set([
  * an agreed convention for them.
  */
 const sharedConfigCandidateOptions = new Set([
-    "categoryOrder",
-    "excludeCategories",
-    "excludeNotDocumentedKinds",
-    "excludeTags",
-    "groupOrder",
-    "ignoredHighlightLanguages",
-    "navigationLeaves",
-    "notRenderedTags",
-    "preservedTypeAnnotationTags",
-    "requiredToBeDocumented",
+    "githubPages",
+    "includeHierarchySummary",
     "router",
-    "sluggerConfiguration",
     "sourceLinkExternal",
-    "typePrintWidth",
 ]);
 
 /**
@@ -87,16 +82,28 @@ const sharedConfigCandidateOptions = new Set([
  */
 const defaultBackedOptions = new Set([
     "blockTags",
-    "githubPages",
-    "hideGenerator",
-    "includeHierarchySummary",
+    "excludeTags",
+    "groupOrder",
     "inlineTags",
     "modifierTags",
+    "notRenderedTags",
     "pretty",
+    "sluggerConfiguration",
+]);
+
+/**
+ * Options owned by TypeDoc's HTML theme or HTML search index which do not
+ * affect this package's Markdown/Docusaurus output.
+ */
+const markdownInapplicableOptions = new Set([
+    "hideGenerator",
+    "ignoredHighlightLanguages",
+    "navigationLeaves",
     "searchCategoryBoosts",
     "searchGroupBoosts",
     "searchInComments",
     "searchInDocuments",
+    "typePrintWidth",
 ]);
 
 /**
@@ -118,6 +125,7 @@ const defaultBackedOptions = new Set([
  *
  * @typedef {{
  *     defaultBacked: DiagnosticOption[];
+ *     markdownInapplicable: DiagnosticOption[];
  *     projectLocal: DiagnosticOption[];
  *     sharedCandidates: DiagnosticOption[];
  *     uncategorized: DiagnosticOption[];
@@ -230,6 +238,7 @@ const buildDiagnosticResult = (schemaProperties, config) => {
     /** @type {DiagnosticResult} */
     const result = {
         defaultBacked: [],
+        markdownInapplicable: [],
         projectLocal: [],
         sharedCandidates: [],
         uncategorized: [],
@@ -249,12 +258,15 @@ const buildDiagnosticResult = (schemaProperties, config) => {
             result.projectLocal.push(diagnosticOption);
         } else if (defaultBackedOptions.has(option)) {
             result.defaultBacked.push(diagnosticOption);
+        } else if (markdownInapplicableOptions.has(option)) {
+            result.markdownInapplicable.push(diagnosticOption);
         } else {
             result.uncategorized.push(diagnosticOption);
         }
     }
 
     result.defaultBacked.sort(compareOptionName);
+    result.markdownInapplicable.sort(compareOptionName);
     result.projectLocal.sort(compareOptionName);
     result.sharedCandidates.sort(compareOptionName);
     result.uncategorized.sort(compareOptionName);
@@ -303,6 +315,10 @@ const main = async () => {
     printSection(
         "Unset options best left at TypeDoc defaults",
         diagnostics.defaultBacked
+    );
+    printSection(
+        "Unset options inapplicable to Markdown/Docusaurus output",
+        diagnostics.markdownInapplicable
     );
     printSection("Unset uncategorized options", diagnostics.uncategorized);
 };

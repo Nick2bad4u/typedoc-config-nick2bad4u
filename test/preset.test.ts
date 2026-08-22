@@ -21,6 +21,10 @@ const typedocCliPath = nodePath.join(
     "bin",
     "typedoc"
 );
+const typedocDiagnosticScriptPath = nodePath.join(
+    "scripts",
+    "diagnose-typedoc-options.mjs"
+);
 const packagedTypeDocPluginNames = [
     "typedoc-plugin-docusaurus-doc-links",
     "typedoc-plugin-hash-link-references",
@@ -140,8 +144,50 @@ describe("typedoc-config-nick2bad4u", () => {
         ).toStrictEqual([]);
     });
 
-    it("can be consumed by TypeDoc through the packaged JSON export", async () => {
+    it("pins Markdown-specific shared renderer behavior", () => {
         expect.assertions(3);
+
+        expect(config.githubPages).toBe(false);
+        expect(config.includeHierarchySummary).toBe(true);
+        expect(config.router).toBe("member");
+    });
+
+    it("classifies unset options by Markdown shared-config ownership", () => {
+        expect.assertions(9);
+
+        const output = execFileSync(
+            process.execPath,
+            [typedocDiagnosticScriptPath],
+            {
+                encoding: "utf8",
+            }
+        );
+
+        expect(output).toMatch(
+            /Unset shared-config candidates \(0\)\r?\n {2}None/v
+        );
+        expect(output).toMatch(
+            /Unset project-local options \(\d+\)[\s\S]*? {2}- categoryOrder:/v
+        );
+        expect(output).toMatch(
+            /Unset project-local options \(\d+\)[\s\S]*? {2}- requiredToBeDocumented:/v
+        );
+        expect(output).toMatch(
+            /Unset options best left at TypeDoc defaults \(\d+\)[\s\S]*? {2}- excludeTags:/v
+        );
+        expect(output).toMatch(
+            /Unset options best left at TypeDoc defaults \(\d+\)[\s\S]*? {2}- sluggerConfiguration:/v
+        );
+        expect(output).toContain(
+            "Unset options inapplicable to Markdown/Docusaurus output (8)"
+        );
+        expect(output).toMatch(/ {2}- hideGenerator:/v);
+        expect(output).toMatch(/ {2}- ignoredHighlightLanguages:/v);
+        expect(output).toMatch(/ {2}- typePrintWidth:/v);
+    });
+
+    it("can be consumed by TypeDoc through the packaged JSON export", async () => {
+        expect.assertions(5);
 
         await rm(fixtureDirectory, {
             force: true,
@@ -183,6 +229,12 @@ describe("typedoc-config-nick2bad4u", () => {
                         "export function add(left: number, right: number): number {",
                         "    return left + right;",
                         "}",
+                        "",
+                        "/** A base item. */",
+                        "export class BaseItem {}",
+                        "",
+                        "/** A specialized item. */",
+                        "export class SpecializedItem extends BaseItem {}",
                         "",
                     ].join("\n")
                 ),
@@ -241,6 +293,8 @@ describe("typedoc-config-nick2bad4u", () => {
 
             expect(output).toContain("markdown generated");
             expect(generatedFiles).toContain("index.md");
+            expect(generatedFiles).toContain("hierarchy.md");
+            expect(generatedFiles).not.toContain(".nojekyll");
             expect(indexMarkdown).toContain("add");
         } finally {
             await rm(fixtureDirectory, {
