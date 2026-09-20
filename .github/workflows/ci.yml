@@ -158,7 +158,7 @@ jobs:
                   set -euo pipefail
                   go install github.com/zricethezav/gitleaks/v8@83d9cd684c87d95d656c1458ef04895a7f1cbd8e
                   echo "${HOME}/go/bin" >> "${GITHUB_PATH}"
-                  python -m pip install --user --disable-pip-version-check yamllint==1.38.0
+                  python -m pip install --user --disable-pip-version-check --only-binary :all: yamllint==1.38.0
                   echo "${HOME}/.local/bin" >> "${GITHUB_PATH}"
 
             - name: "Install dependencies without lifecycle scripts"
